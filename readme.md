@@ -1,8 +1,21 @@
 # FAST API apps 
 
-- ### Unit Converter
+- ### ToDo App
 
-    API used to do conversion between different units 
+    #### APIs used to manage the tasks
+    
+    #### Technology Used
+    - Python programming lanuguage
+    - FastAPI framework for api building
+    - Postgres for Tasks and User data management
+    - pscopg3 for connecting with postgres
+
+    #### Project requirement source - https://roadmap.sh/projects/todo-list-api
+    please visit "/docs" path for detailed documentation of apis
+    ![IMAGE_DESCRIPTION](todo_apis.png)
+
+
+
 
 ## Installation
 
@@ -44,13 +57,13 @@ pip install -r requirements.txt
 
     ```
 
-- Create .env file and add following
+- Create .env file in project root folder and add following
 ```
 HOST = localhost     
 PORT = 5432          
 DBNAME = postgres   
-USER = <UserName>   
-PASSWORD = <Password>
+USER = <Postgres UserName>   
+PASSWORD = <Postgres Password>
 
 SECRET_KEY = afgbaosa98!            
 ALGORITHM = HS256                   
