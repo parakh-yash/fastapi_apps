@@ -7,7 +7,7 @@ def execute_query(query: str, cls, params = None):
         "host": os.environ.get("HOST"),
         "port": os.environ.get("PORT"),
         "dbname": os.environ.get("DBNAME"),
-        "user": os.environ.get("USER"),
+        "user": os.environ.get("DBUSER"),
         "password": os.environ.get("PASSWORD")
     }
     with psycopg.connect(**db_config) as conn:

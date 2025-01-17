@@ -62,7 +62,7 @@ pip install -r requirements.txt
 HOST = localhost     
 PORT = 5432          
 DBNAME = postgres   
-USER = <Postgres UserName>   
+DBUSER = <Postgres UserName>   
 PASSWORD = <Postgres Password>
 
 SECRET_KEY = afgbaosa98!            

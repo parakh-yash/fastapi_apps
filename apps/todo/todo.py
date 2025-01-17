@@ -8,17 +8,19 @@ from apps.todo.db import execute_query
 from apps.todo.res_models import TaskResponse
 from apps.todo.req_models import TaskRequest
 
-router = APIRouter(prefix='/todo')
+router = APIRouter(prefix='/todo', tags=['ToDo App'])
 router.include_router(auth_router)
 
-@router.get('/todos')
-def list_tasks(user: Annotated[User, Depends(get_current_active_user)]):
+@router.get('/todos', response_model=list[TaskResponse])
+def list_tasks(user: Annotated[User, Depends(get_current_active_user)], page: int = 1, limit: int = 10,):
     q = """
-        SELECT *
-        FROM todo.tasks t
-        WHERE t.email = %s
+        SELECT id, title, description
+        FROM todo.tasks t 
+        where t.email = %s
+        ORDER BY t.id 
+        LIMIT %s OFFSET (%s - 1) * %s;
     """
-    d = (user.email,)
+    d = (user.email, limit, page, limit)
     return execute_query(q, TaskResponse, d)
 
 @router.post('/todos')
